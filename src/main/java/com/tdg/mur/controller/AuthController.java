@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tdg.mur.dto.AuthenticationResponse;
+import com.tdg.mur.dto.LoginRequest;
 import com.tdg.mur.dto.RegisterRequest;
 import com.tdg.mur.service.AuthService;
-import com.tdg.mur.service.MailService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,19 +27,19 @@ public class AuthController {
 	 private final AuthService authService;
 
 	    @PostMapping("/signup")
-	    public ResponseEntity signup(@RequestBody RegisterRequest registerRequest) {
+	    public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
 	        authService.signup(registerRequest);
-	        return new ResponseEntity(OK);
+	        return new ResponseEntity<>("User Registered Successfully", OK);
 	    }
 
-//	    @PostMapping("/login")
-//	    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
-//	        return authService.login(loginRequest);
-//	    }
+	    @PostMapping("/login")
+	    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+	        return authService.login(loginRequest);
+	    }
 
 	    @GetMapping("accountVerification/{token}")
 	    public ResponseEntity<String> verifyAccount(@PathVariable String token) {
 	        authService.verifyAccount(token);
-	        return new ResponseEntity<>("Account Activated Successully", OK);
+	        return new ResponseEntity<>("Account Activated Successfully", OK);
 	    }
 }
