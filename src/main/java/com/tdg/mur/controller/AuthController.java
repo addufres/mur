@@ -29,17 +29,20 @@ public class AuthController {
 	    @PostMapping("/signup")
 	    public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
 	        authService.signup(registerRequest);
+	        log.info("New user registered: " + registerRequest.toString());
 	        return new ResponseEntity<>("User Registered Successfully", OK);
 	    }
 
 	    @PostMapping("/login")
 	    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+	    	log.info("Login request by: " + loginRequest.toString());
 	        return authService.login(loginRequest);
 	    }
 
 	    @GetMapping("accountVerification/{token}")
 	    public ResponseEntity<String> verifyAccount(@PathVariable String token) {
 	        authService.verifyAccount(token);
+	        log.info("New user verified successfully.");
 	        return new ResponseEntity<>("Account Activated Successfully", OK);
 	    }
 }

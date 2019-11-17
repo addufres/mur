@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.*;
 import java.security.cert.CertificateException;
+import static io.jsonwebtoken.Jwts.parser;
+import io.jsonwebtoken.Claims;
 
 @Service
 public class JwtProvider {
@@ -42,5 +44,27 @@ public class JwtProvider {
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new MurException("Exception occured while retrieving public key from keystore");
         }
+    }
+    
+    public boolean validateToken(String jwt) {
+        parser().setSigningKey(getPublickey()).parseClaimsJws(jwt);
+        return true;
+    }
+    
+    private PublicKey getPublickey() {
+        try {
+            return keyStore.getCertificate("mur").getPublicKey();
+        } catch (KeyStoreException e) {
+            throw new MurException("Exception occured while retrieving public key from keystore");
+        }
+    }
+    
+    public String getUsernameFromJWT(String token) {
+        Claims claims = parser()
+                .setSigningKey(getPublickey())
+                .parseClaimsJws(token)
+                .getBody();
+
+        return claims.getSubject();
     }
 }

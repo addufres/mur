@@ -94,16 +94,18 @@ public class AuthService {
         userRepository.save(user);
     }
 
-//  @Transactional(readOnly = true)
-//  User getCurrentUser() {
-//      org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
-//              getContext().getAuthentication().getPrincipal();
-//      return userRepository.findByUsername(principal.getUsername()).orElseThrow(() -> new UsernameNotFoundException("User name not found - " + principal.getUsername()));
-//  }
+  @Transactional(readOnly = true)
+  User getCurrentUser() {
+      org.springframework.security.core.userdetails.User principal = 
+    		  (org.springframework.security.core.userdetails.User) SecurityContextHolder.
+      				getContext().getAuthentication().getPrincipal();
+      return userRepository.findByUsername(principal.getUsername())
+    		  .orElseThrow(() -> new UsernameNotFoundException("User name not found - " + principal.getUsername()));
+  }
 
-//  public boolean isLoggedIn() {
-//      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//      return !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
-//  }
+  public boolean isLoggedIn() {
+      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+      return !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
+  }
 
 }
