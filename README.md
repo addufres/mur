@@ -89,6 +89,8 @@ Needs to be built still
 
 ### Stories still to complete...
 
+- add api query for getting thread by name... duh how did I forget this already....
+
 - Voting on posts
 
 - Friend lists
