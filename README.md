@@ -54,5 +54,52 @@ Get All Posts By Username
 
 	/api/posts/query/user/{name}
 
+### THREADS
+Create Thread
+
+	/api/thread/create
+
+Get Thread
+
+	/api/thread/query/{id}
+
+Get All Threads
+
+	/api/thread/query/all
+
+Get All Posts in Thread
+
+	/api/thread/{id}/posts/all
 
 ## DATA OBJECTS
+
+### USER REGISTRATION
+Registration requests sends username, password and email in REQUEST BODY
+
+Once user receives activation email and clicks validation link the RESPONSE BODY contains username and authenticationToken
+
+Login requests send off username and password in REQUEST BODY
+
+### THREAD INTERACTION
+Needs testing still
+### POST INTERACTION
+Needs testing still
+### COMMENT INTERACTION
+Needs to be built still
+
+### Stories still to complete...
+
+- Voting on posts
+
+- Friend lists
+
+- User messaging between users.
+
+- thread moderators and admins
+
+- front end would be nice =D
+
+
+
+
+
