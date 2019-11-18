@@ -39,8 +39,8 @@ public class ThreadController {
 	}
 	
 	@GetMapping(ID_POSTS_ALL)
-	public List<PostResponse> getAllPostsInThread(@PathVariable Long threadId) {
-		return threadService.getAllPosts(threadId);
+	public List<PostResponse> getAllPostsInThread(@PathVariable Long id) {
+		return threadService.getAllPosts(id);
 	}
 	
 	@PostMapping(CREATE)
