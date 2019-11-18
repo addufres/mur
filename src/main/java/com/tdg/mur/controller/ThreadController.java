@@ -29,8 +29,8 @@ public class ThreadController {
 	private final ThreadService threadService;
 	
 	@GetMapping(QUERY_ID)
-	public ThreadDto getThread(@PathVariable Long threadId) {
-		return threadService.getThread(threadId);
+	public ThreadDto getThread(@PathVariable Long id) {
+		return threadService.getThread(id);
 	}
 	
 	@GetMapping(QUERY_ALL)

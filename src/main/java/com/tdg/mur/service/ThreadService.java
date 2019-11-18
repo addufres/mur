@@ -1,5 +1,7 @@
 package com.tdg.mur.service;
 
+import static com.tdg.mur.util.Constants.THREAD_NOT_FOUND_WITH_ID;
+
 import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,18 +9,19 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tdg.mur.repos.PostRepository;
-import com.tdg.mur.repos.ThreadRepository;
 import com.tdg.mur.dto.PostResponse;
 import com.tdg.mur.dto.ThreadDto;
 import com.tdg.mur.exception.ThreadNotFoundException;
 import com.tdg.mur.model.Thread;
-import static com.tdg.mur.util.Constants.THREAD_NOT_FOUND_WITH_ID;
+import com.tdg.mur.repos.PostRepository;
+import com.tdg.mur.repos.ThreadRepository;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class ThreadService {
 
 	private final ThreadRepository threadRepo;
@@ -47,6 +50,7 @@ public class ThreadService {
 	public ThreadDto getThread(Long threadId) {
 		Thread t = threadRepo.findById(threadId)
 				.orElseThrow(() -> new ThreadNotFoundException(THREAD_NOT_FOUND_WITH_ID + threadId));
+		log.info("The thread coming back is: " + t.getDescription());
 		return createThreadDto(t);
 	}
 	
@@ -60,6 +64,7 @@ public class ThreadService {
 	private ThreadDto createThreadDto(Thread thread) {
 		return ThreadDto.builder()
 				.name(thread.getName())
+				.description(thread.getDescription())
 				.id(thread.getId())
 				.postSum(thread.getPosts().size())
 				.build();
