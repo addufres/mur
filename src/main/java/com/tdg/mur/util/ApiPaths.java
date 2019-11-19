@@ -11,5 +11,7 @@ public class ApiPaths {
     public static final String CREATE = "/create";
     public static final String THREAD_API_MAPPING = API + "/thread";
     public static final String ID_POSTS_ALL = "{id}/posts/all";
-    
+    public static final String COMMENT_API_MAPPING = API + "/comments";
+    public static final String QUERY_COMMENTS_ID = "/query/{postId}";
+    public static final String QUERY_COMMENTS_USER = "/query/user/{username}";
 }
