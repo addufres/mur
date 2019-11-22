@@ -20,7 +20,8 @@ testUser1 / password
 testUser2 / password
 
 ## API Paths
-### LOGIN AND USER REG
+
+### USER AUTHENTICATION / LOGIN
 User Signup
 
 	/api/auth/signup
@@ -32,6 +33,23 @@ User Signup Email Verification
 User Login
 
 	/api/auth/login
+
+### THREADS
+Create Thread
+
+	/api/thread/create
+
+Get Thread
+
+	/api/thread/query/{id}
+
+Get All Threads
+
+	/api/thread/query/all
+
+Get All Posts in Thread
+
+	/api/thread/{id}/posts/all
 
 ### POSTS 
 Create Post
@@ -54,24 +72,39 @@ Get All Posts By Username
 
 	/api/posts/query/user/{name}
 
-### THREADS
-Create Thread
+### COMMENTS
+Create Comment
 
-	/api/thread/create
+	/api/comments/create
 
-Get Thread
+Get Comments for a post
 
-	/api/thread/query/{id}
+	/api/comments/query/{postId}
 
-Get All Threads
+Get Comments for a user
 
-	/api/thread/query/all
+	/api/comments/query/user/{username}
 
-Get All Posts in Thread
+### VOTING
+Vote
 
-	/api/thread/{id}/posts/all
+	/api/votes/vote
+
+- UPVOTE Request value = 0
+- DOWNVOTE Request value = 1
 
 ## DATA OBJECTS
+
+### USER AUTHENTICATION / LOGIN
+
+### THREADS
+
+### POST
+
+### COMMENT
+
+### VOTE
+
 
 ### USER REGISTRATION
 Registration requests sends username, password and email in REQUEST BODY
