@@ -14,4 +14,7 @@ public class ApiPaths {
     public static final String COMMENT_API_MAPPING = API + "/comments";
     public static final String QUERY_COMMENTS_ID = "/query/{postId}";
     public static final String QUERY_COMMENTS_USER = "/query/user/{username}";
+    public static final String VOTES = API + "/votes/";
+    public static final String VOTE = "vote";
+    
 }
