@@ -36,6 +36,7 @@ public class CommentService {
     
     private CommentDto createCommentDto(Comment comment) {
     	return CommentDto.builder()
+    			.id(comment.getId())
     			.postId(comment.getPost().getPostId())
     			.text(comment.getText())
     			.duration(using(comment.getCreatedDate().toEpochMilli()))
@@ -45,6 +46,7 @@ public class CommentService {
     
     private Comment createComment(CommentDto commentDto, Post post) {
     	return Comment.builder()
+    			.id(post.getPostId())
     			.text(commentDto.getText())
     			.post(post)
     			.user(authService.getCurrentUser())

@@ -38,8 +38,8 @@ public class CommentController {
 	}
 	
 	@PostMapping(CREATE)
-	public ResponseEntity postComment(@RequestBody CommentDto commentDto) {
+	public ResponseEntity<String> postComment(@RequestBody CommentDto commentDto) {
 		commentService.createComment(commentDto);
-		return new ResponseEntity("Comment posted successfully.", OK);
+		return new ResponseEntity<>("Comment posted successfully.", OK);
 	}
 }
