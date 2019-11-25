@@ -1,0 +1,27 @@
+<header>
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+		<div class="flex-grow-1">
+			<a aria-label="Home" class="logo" routerLink="/"> 
+				<img alt="MU logo" src="{{logo}}" class="main-header-icon"> 
+				<span class="header-text">MUR - Where MU should have been all along.</span>
+			</a>
+			<div class="flex-grow-1 float-right auths">
+				<div *ngIf="userStatus" ngbDropdown class="float-right">
+					<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+						<button ngbDropdownItem (click)="gotoProfile()">Profile</button>
+						<button (click)="logout()" ngbDropdownItem>Logout</button>
+					</div>
+					<button class="userdeets" id="dropdownBasic1" ngbDropdownToggle>
+						<img class="account-icon"
+							src="https://www.redditstatic.com/avatars/avatar_default_08_D4E815.png">
+						{{username}}
+					</button>
+				</div>
+				<div *ngIf="!isLoggedIn">
+					<a routerLink="/signup" class="float-right signup mr-2">Sign up</a>
+					<a routerLink="/login" class="float-right login mr-2">Login</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>

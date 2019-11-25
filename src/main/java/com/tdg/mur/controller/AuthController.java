@@ -26,11 +26,12 @@ public class AuthController {
 	
 	 private final AuthService authService;
 
-	    @PostMapping("/signup")
-	    public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
+	    @SuppressWarnings("rawtypes")
+		@PostMapping("/signup")
+	    public ResponseEntity signup(@RequestBody RegisterRequest registerRequest) {
 	        authService.signup(registerRequest);
 	        log.info("New user registered: " + registerRequest.toString());
-	        return new ResponseEntity<>("User Registered Successfully", OK);
+	        return new ResponseEntity<>(OK);
 	    }
 
 	    @PostMapping("/login")
