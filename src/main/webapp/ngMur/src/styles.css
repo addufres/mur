@@ -8,7 +8,7 @@ body{
     height: 100%; 
 }
 
-.sidebar, .sidebar-view-subreddit{
+.sidebar, .sidebar-view-thread {
     width: 312px;
     height: 242px;
     --post-line-color: #ccc;    
@@ -24,11 +24,11 @@ body{
     margin-bottom: 10px;
 }
 
-.sidebar-view-subreddit{
+.sidebar-view-thread{
     height: 280px;
 }
 
-.login, .signup, .search, .subscribe, .btnCreatePost, .btnCreateSubreddit{
+.login, .signup, .search, .subscribe, .btnCreatePost, .btnCreateThread {
     background-color: #0079D3;
     border-color: #0079D3;
     color: aliceblue;
@@ -47,7 +47,7 @@ body{
     opacity: 1;
 }
 
-.btnCreatePost, .btnCreateSubreddit{
+.btnCreatePost, .btnCreateThread{
     width: 288px;
     height: 34px;
 }
@@ -84,11 +84,11 @@ body{
     opacity: 0.6;    
 }
 
-.subreddit-text{
+.thread-text{
     font-weight: bold;
 }
 
-.btnCreateSubreddit{
+.btnCreateThread{
     margin-top: 5px;
     color: #0079D3;
     background-color: transparent;
@@ -152,7 +152,7 @@ body{
     cursor: pointer;
 }
 
-.createpost-container, .createsubreddit-container{
+.createpost-container, .createthread-container{
     margin-top: 10px;
     --post-line-color: #ccc;    
     border: 1px solid #ccc;
@@ -166,7 +166,7 @@ body{
     padding:5px;
 }
 
-.createpost-heading, .createsubreddit-heading{
+.createpost-heading, .createthread-heading{
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;

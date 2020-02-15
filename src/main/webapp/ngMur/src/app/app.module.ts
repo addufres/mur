@@ -16,6 +16,10 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { CommentComponent } from './post-interactions/comment/comment.component';
+import { PostComponent } from './post-interactions/post/post.component';
+import { CreatePostComponent } from './post-interactions/create-post/create-post.component';
+import { ViewPostComponent } from './post-interactions/view-post/view-post.component';
 
 @NgModule({
 	declarations: [
@@ -24,7 +28,11 @@ import { UserComponent } from './user/user.component';
 		RegisterComponent,
 		HeaderComponent,
 		HomeComponent,
-		UserComponent
+		UserComponent,
+		CommentComponent,
+		PostComponent,
+		CreatePostComponent,
+		ViewPostComponent
 	],
 	imports: [
 		BrowserModule,
@@ -32,7 +40,9 @@ import { UserComponent } from './user/user.component';
 		RouterModule.forRoot([
 			{ path: '', component: HomeComponent },
 			{ path: 'login', component: LoginComponent },
-			{ path: 'signup', component: RegisterComponent }
+			{ path: 'signup', component: RegisterComponent },
+			{ path: 'user/:username', component: UserComponent }
+			/*{ path: 'view-post/:id', component: ViewPostComponent },*/
 		], { onSameUrlNavigation: "reload" }),
 		FontAwesomeModule,
 		NgbModule,

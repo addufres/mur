@@ -1,1 +1,17 @@
-<p>user works!</p>
+<div class="container">
+    <div>
+        Welcome <b>{{name}}</b>.<br /> You have posted <b>{{postLength}}</b> time(s) and commented
+        <b>{{commentLength}}</b> time(s).
+        You can check your post and comment history below.
+    </div>
+    <hr />
+    <div>
+        Your Posts:
+    </div>
+    <post [data]="posts"></post>
+    <hr />
+    <div>
+        Your Comments:
+    </div>
+    <comment [data]="comments"></comment>
+</div>
